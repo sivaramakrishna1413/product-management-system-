@@ -1,0 +1,26 @@
+{% include 'base.html' %}
+
+{% block content %}
+<center>
+<h4>EachProduct </h4>
+{% if EachProduct %}
+<div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="{{EachProduct.image.url}}" class="img-fluid rounded-start" alt="image not found">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{ EachProduct.name }}</h5>
+          <p class="card-text">{{ EachProduct.price }}</p>
+          <p class="card-text"><small class="text-muted">{{ EachProduct.description }}</small></p>
+          <a href="{% url 'DeleteProduct' EachProduct.pk %}"><button type="button" class="btn btn-danger">Delete</button></a>
+          <a href="{% url 'updateproduct' EachProduct.pk %}"><button type="button" class="btn btn-primary">Update</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</center>
+{% endif %}
+{% endblock %}
+
